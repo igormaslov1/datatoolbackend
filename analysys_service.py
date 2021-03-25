@@ -1,16 +1,12 @@
-
+import json
+import xlrd
+import pandas as pd
 
 def convertFromExcelToPandas(file):
     try:
         if file:
-            if type(file) == str:
-                import xlrd
-                workbook = xlrd.open_workbook(file)
-            else:
-                import xlrd
-                workbook = xlrd.open_workbook(file_contents=file.read())
-            console.log(workbook)
-            print(workbook)
+            csv = pd.read_csv(file)
+            print(csv)
             return json.dumps({'result' : 'Upload was successful'})
     except Exception as e:
         print(e)

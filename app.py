@@ -11,7 +11,6 @@ def home():
 @app.route("/convertFromExcelToPandas", methods=['GET', 'POST'])
 def convertFromExcelToPandas():
     if request.method == 'POST':
-        reqFiles = request.files
         file = request.files['file']
         return analysys_service.convertFromExcelToPandas(file)
 
